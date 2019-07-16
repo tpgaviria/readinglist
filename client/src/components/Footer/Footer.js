@@ -2,9 +2,9 @@ import React from "react";
 import "./Footer.css";
 
 const Footer = props => (
-    <div>
+    <footer className="fixed-bottom bg-dark">
         <p>Footer here, hello</p>
-    </div>
+    </footer>
 )
 
 export default Footer;
