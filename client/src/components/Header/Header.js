@@ -4,8 +4,8 @@ import Navbar from "./Navbar";
 
 const Header = props => (
     <div>
-        <HeroImage/>
         <Navbar />
+        <HeroImage/>
     </div>
 )
 
