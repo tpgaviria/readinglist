@@ -4,7 +4,7 @@ import API from '../utilities/API';
 import SearchInput from '../components/Body/SearchInput/SearchInput';
 
 
-class Search extends React.Component {
+class SearchPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,15 +23,23 @@ class Search extends React.Component {
 
     handleSearchSubmit = event => {
         event.preventDefault();
+        API.searchBooks(this.state.bookInput)
+            .then(res => {
+                this.setState({ bookData: res.data });
+                this.setState({ bookInput: "" });
+            })
         console.log('search submitted');
     };
 
     render() {
         console.log(this.state);
         return (
-            <SearchInput handleSearchInput={this.handleSearchInput.bind(this)} handleSearchSubmit={this.handleSearchSubmit.bind(this)} />
+            <div>
+                <SearchInput handleSearchInput={this.handleSearchInput.bind(this)} handleSearchSubmit={this.handleSearchSubmit.bind(this)} />
+                <ResultItem />
+            </div>
         )
     }
 };
 
-export default Search;
+export default SearchPage;

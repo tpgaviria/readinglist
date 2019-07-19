@@ -4,7 +4,7 @@ import "./Body.css";
 import SavedPage from "../../pages/SavedPage";
 import SearchPage from "../../pages/SearchPage";
 
-const Body = props => (
+const Body = () => (
     <div className="container">
         <Router>
             <main>
