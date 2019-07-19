@@ -1,11 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const routes = require('./routes/api-routes');
 require('dotenv').config;
-require('./routes/api-routes')(app);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
 if (process.env.MODE_ENV === "production") {
     app.use(express.static("client/build"));
